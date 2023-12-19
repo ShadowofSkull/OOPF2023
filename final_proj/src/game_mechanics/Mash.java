@@ -38,6 +38,7 @@ public class Mash extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent e) {
         // method not needed
     }
+
     // Method to track keyboard input
     @Override
     public void keyReleased(KeyEvent e) {
@@ -70,8 +71,9 @@ public class Mash extends JFrame implements KeyListener {
             System.out.println("battle");
         }
 
-        // Attack roulette
-        if (spacePressed && phase.equals("attackRoulette")) {
+        // Attack/Defense/Pokeball roulette
+        if (spacePressed && (phase.equals("attackRoulette") || phase.equals("defendRoulette")
+                || phase.equals("pokeballRoulette"))) {
             setPhase("stopRoulette");
         }
 
@@ -79,11 +81,6 @@ public class Mash extends JFrame implements KeyListener {
         if (spacePressed && phase.equals("spirit")) {
             Spirit.increaseSpirit();
             System.out.println("Spirit: " + Spirit.getSpirit());
-        }
-
-        // Pokeball roulette
-        if (spacePressed && phase.equals("pokeballRoulette")) {
-            setPhase("stopRoulette");
         }
 
     }

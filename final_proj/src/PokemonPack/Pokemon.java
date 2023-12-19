@@ -16,6 +16,9 @@ public class Pokemon implements Cloneable { // Cloneable is used to clone the pr
             new Pokemon("Pikachu", new PokemonType("Electric", "Thunderbolt", "Electric Shield"), 100,
                     new Stats(20000, 100, 100, 100), 1) };
 
+    public Pokemon() {
+    }
+
     public Pokemon(String name, PokemonType type, int power_level, Stats stats) {
         this.name = name;
         setType(type); // Add validation check for PokemonType
@@ -96,6 +99,7 @@ public class Pokemon implements Cloneable { // Cloneable is used to clone the pr
     public void setStats(Stats stats) {
         this.stats = stats;
     }
+
 
     @Override
     public String toString() {

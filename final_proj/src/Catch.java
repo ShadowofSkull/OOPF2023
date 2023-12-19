@@ -6,17 +6,8 @@ import game_mechanics.Ball;
 import game_mechanics.PokeballRoulette;
 
 public class Catch {
-    private static int hp;
 
-    public static int getHp() {
-        return hp;
-    }
-
-    public static void setHp(int hp) {
-        Catch.hp = hp;
-    }
-
-    public static boolean pokemonCatchable() {
+    public static boolean pokemonCatchable(int hp) {
         // this.hp = Pokemon.getHP();
         // temp placeholder to get hp
         if (hp == 0)

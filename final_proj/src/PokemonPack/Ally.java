@@ -2,7 +2,7 @@ package PokemonPack;
 
 import java.util.Arrays;
 
-public class Ally {
+public class Ally{
     private static Pokemon[] allyPokemons = new Pokemon[2];
 
     public static void choosePokemon(Pokemon pokemon) {
@@ -24,9 +24,9 @@ public class Ally {
         return allyPokemons;
     }
 
-    // not necessary
-    public static String toStringAllyPokemons() {
-        return Arrays.toString(allyPokemons);
+    public static void displayHP(){
+        System.out.println("Ally Pokemon 1 HP: " + allyPokemons[0].getStats().getHp());
+        System.out.println("Ally Pokemon 2 HP: " + allyPokemons[1].getStats().getHp());
     }
 
     public static Pokemon[] displayPokemons() {

@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Score {
-    List<List<String>> scores;
+    public List<List<String>> scores;
     private String filePath;
 
     public Score() {
-        this.filePath = "score.txt";
+        this.filePath = "score.txt"; // MAKE SURE when reading the file, the .txt file must have 1 empty line at the end of the file, or error will form
     }
 
     public void printScore() {

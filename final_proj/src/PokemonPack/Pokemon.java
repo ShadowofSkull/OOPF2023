@@ -2,7 +2,7 @@ package PokemonPack;
 
 import java.util.Random;
 
-public class Pokemon implements Cloneable {
+public class Pokemon implements Cloneable { // Cloneable is used to clone the preset pokemons
     private String name;
     private PokemonType type;
     private int power_level;
@@ -30,8 +30,9 @@ public class Pokemon implements Cloneable {
         this.stats = stats;
         setGrade(grade);
     }
-
+    
     public void setType(PokemonType type) {
+        // Add validation check for PokemonType
         if (type.getType().equals("Fire") || type.getType().equals("Water") || type.getType().equals("Electric")) {
             this.type = type;
         } else {
@@ -40,9 +41,11 @@ public class Pokemon implements Cloneable {
     }
 
     public void setGrade(int grade) {
+        // Add validation check for grade
         if (grade >= 1 && grade <= 4) {
             this.grade = grade;
         } else {
+            // Throw an exception if the grade is not between 1 and 4
             throw new IllegalArgumentException("Grade must be between 1 and 4.");
         }
     }

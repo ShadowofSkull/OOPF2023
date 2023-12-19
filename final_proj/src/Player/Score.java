@@ -18,23 +18,25 @@ public class Score {
 
     public void printScore() {
 
-        List<List<String>> records = readFileInto2DList(filePath); // Read the file and store the records in a 2D list
+        List<List<String>> scores = readFileInto2DList(filePath); // Read the file and store the records in a 2D list
         
         // Sort the records based on the score in descending order
-        records.sort((r1, r2) -> Integer.compare(Integer.parseInt(r2.get(1)), Integer.parseInt(r1.get(1))));
+        // parseInt used to convert the string score to an integer
+        // compare is used to compare the two scores
+        scores.sort((r1, r2) -> Integer.compare(Integer.parseInt(r2.get(1)), Integer.parseInt(r1.get(1))));
         
         // Display only the top 5 scores
         System.out.println("Top 5 Scores:");
-        for (int i = 0; i < Math.min(records.size(), 5); i++) { // Math.min() is used to prevent errors when there are less than 5 records.
-            List<String> record = records.get(i); 
+        for (int i = 0; i < Math.min(scores.size(), 5); i++) { // Math.min() is used to prevent errors when there are less than 5 records.
+            List<String> record = scores.get(i); 
             
-            System.out.println((i + 1) + ". " + record.get(0) + " - " + record.get(1)); // Display the username and score
+            System.out.println((i + 1) + ". " + record.get(0) + ": " + record.get(1)); // Display the username and score
         }
     }
 
 
     public void updateScore(String username, int score) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath, true))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath, true))) { // FileWriter is used to append to the file
             bw.write(username + "|" + score); // Write the username and score to the file
             bw.newLine(); // Add a new line to the end of the file
         } catch (IOException e) {
@@ -43,17 +45,17 @@ public class Score {
     }
     
 
-    public List<List<String>> readFileInto2DList(String fp) {
+    private List<List<String>> readFileInto2DList(String fp) {
         List<List<String>> scores = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(fp))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fp))) {
             String lines;   // Stores each line of the file
-            while ((lines = br.readLine()) != null) { // Read each line of the file
+            while ((lines = reader.readLine()) != null) { // Read each line of the file
                 String[] data = lines.split("\\|"); // Split the line into an array of strings
                 scores.add(Arrays.asList(data)); // Add the array of strings as a row in the 2D list
             }
-            // Error handling for the file not found case.
+            // Error handling if the file is not found.
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Print the error message
         }
         return scores;
     }

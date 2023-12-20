@@ -1,5 +1,6 @@
 import PokemonPack.Ally;
 import PokemonPack.Enemy;
+import PokemonPack.Pokemon;
 import game_mechanics.Attack;
 import game_mechanics.AttackRoulette;
 import game_mechanics.Defend;
@@ -51,13 +52,15 @@ public class Battle {
     }
 
     public static void displayStats() throws InterruptedException {
-        // Display enemy pokemons
-        System.out.println(Enemy.getEnemyPokemons()[0].getStats().getHp());
-        System.out.println(Enemy.getEnemyPokemons()[1].getStats().getHp());
-        // Display ally pokemons
-        System.out.println(Ally.getAllyPokemons()[0].getStats().getHp());
-        System.out.println(Ally.getAllyPokemons()[1].getStats().getHp());
-        Thread.sleep(3000);
-
+        Pokemon ally1 = Ally.getAllyPokemons()[0];
+        Pokemon ally2 = Ally.getAllyPokemons()[1];
+        Pokemon enemy1 = Enemy.getEnemyPokemons()[0];
+        Pokemon enemy2 = Enemy.getEnemyPokemons()[1];
+        // Display stats of ally and enemy pokemon
+        System.out.print("Ally Pokemon 1: " + ally1.getName() + " HP: " + ally1.getStats().getHp() + " Type: " + ally1.getType().getType() + "\t\t");
+        System.out.println("Enemy Pokemon 1: " + enemy1.getName() + " HP: " + enemy1.getStats().getHp() + " Type: " + enemy1.getType().getType());
+        System.out.print("Ally Pokemon 2: " + ally2.getName() + " HP: " + ally2.getStats().getHp() + " Type: " + ally2.getType().getType() + "\t\t");
+        System.out.println("Enemy Pokemon 2: " + enemy2.getName() + " HP: " + enemy2.getStats().getHp() + " Type: " + enemy2.getType().getType());
+        Thread.sleep(5000);
     }
 }

@@ -37,9 +37,9 @@ public class PokemonType {
             break;
         case "Electric":
             this.non_effective_type = new String[1];
-            this.non_effective_type[0] = "Water";
+            this.non_effective_type[0] = "Electric";
             this.effective_type = new String[1];
-            this.effective_type[0] = "Electric";
+            this.effective_type[0] = "Water";
             break;
         default:
             System.out.println("Error assigning effectiveness");
@@ -59,12 +59,12 @@ public class PokemonType {
         }
     }
 
-    public String getNonEffectiveType() {
-        return Arrays.toString(non_effective_type);
+    public String[] getNonEffectiveType() {
+        return non_effective_type;
     }
 
-    public String getEffective_type() {
-        return Arrays.toString(effective_type);
+    public String[] getEffectiveType() {
+        return effective_type;
     }
 
     public String getUnique_skill() {

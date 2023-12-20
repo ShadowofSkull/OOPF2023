@@ -4,17 +4,15 @@ public class Stats {
     private int hp;
     private int attackPower;
     private int defensePower;
-    private double effectiveness;
 
     public Stats() {
         
     }
 
-    public Stats(int hp, int attackPower, int defensePower, double effectiveness) {
+    public Stats(int hp, int attackPower, int defensePower) {
         this.hp = hp;
         this.attackPower = attackPower;
         this.defensePower = defensePower;
-        this.effectiveness = effectiveness;
     }
 
     public int getHp() {
@@ -40,17 +38,5 @@ public class Stats {
     public void setDefensePower(int defensePower) {
         this.defensePower = defensePower;
     }
-
-    public double getEffectiveness() {
-        return effectiveness;
-    }
-
-    public void setEffectiveness(double effectiveness) {
-        this.effectiveness = effectiveness;
-    }
-
-    
-
-
 
 }

@@ -9,17 +9,6 @@ import PokemonPack.Enemy;
 
 public class Display {
 
-    public static void displayPokemonsHP() throws InterruptedException {
-        // Display enemy pokemons
-        System.out.println(Enemy.getEnemyPokemons()[0].getStats().getHp());
-        System.out.println(Enemy.getEnemyPokemons()[1].getStats().getHp());
-        // Display ally pokemons
-        System.out.println(Ally.getAllyPokemons()[0].getStats().getHp());
-        System.out.println(Ally.getAllyPokemons()[1].getStats().getHp());
-        Thread.sleep(2000);
-
-    }
-
     public void displaySlides(String[] slides) throws InterruptedException {
         for (String slide : slides) {
             // Clear console

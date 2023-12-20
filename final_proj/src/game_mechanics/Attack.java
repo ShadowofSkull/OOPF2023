@@ -38,8 +38,8 @@ public class Attack {
         // Allow user to mash for 1 seconds
         // display sleep for 0.5 seconds every slide so 2 is 1 seconds
         MashButton mashButton = new MashButton();
-        for (int i = 0; i < 3; i++) {
-            
+        for (int i = 0; i < 5; i++) {
+
             mashButton.displayMashAnimation();
         }
 
@@ -48,11 +48,53 @@ public class Attack {
         System.out.println("Final Spirit: " + Spirit.getSpirit());
         // Calculate damage
         Attack.damage = calcDamage();
-        Attack.totalDamage += Attack.damage;
-        System.out.println("Damage: " + damage);
+        int effectivenessDamage1 = damage;
+        int effectivenessDamage2 = damage;
+        String[] effectiveType = attackingPokemon.getType().getEffectiveType();
+        String[] nonEffectiveType = attackingPokemon.getType().getNonEffectiveType();
+        Pokemon enemy1 = Enemy.getEnemyPokemons()[0];
+        Pokemon enemy2 = Enemy.getEnemyPokemons()[1];
+        // Two different getter in different classes with same name former gets type
+        // class in pokemon latter get name of type
+        String enemy1Type = enemy1.getType().getType();
+        String enemy2Type = enemy2.getType().getType();
+
+        for (String effective : effectiveType) {
+            if (effective.equals(enemy1Type)) {
+                effectivenessDamage1 *= 1.5;
+            }
+            if (effective.equals(enemy2Type)) {
+                effectivenessDamage2 *= 1.5;
+            }
+        }
+        for (String nonEffective : nonEffectiveType) {
+            if (nonEffective.equals(enemy1Type)) {
+                effectivenessDamage1 *= 0.5;
+            }
+            if (nonEffective.equals(enemy2Type)) {
+                effectivenessDamage2 *= 0.5;
+            }
+        }
+        Attack.totalDamage += (effectivenessDamage1 + effectivenessDamage2);
+        // Display damage caused
+        System.out.println("Damage landed:");
+        System.out.println("Damage to " + enemy1.getName() + ": " + effectivenessDamage1);
+        System.out.println("Damage to" + enemy2.getName() +  ": " + effectivenessDamage2);
+        System.out.println("Original hp:");
+        System.out.println(Enemy.getEnemyPokemons()[0].getName() + " hp: "
+                + Enemy.getEnemyPokemons()[0].getStats().getHp());
+        System.out.println(Enemy.getEnemyPokemons()[1].getName() + " hp: "
+                + Enemy.getEnemyPokemons()[1].getStats().getHp());
         // Reduce enemy pokemons hp
-        Enemy.getEnemyPokemons()[0].getStats().setHp(Enemy.getEnemyPokemons()[0].getStats().getHp() - damage);
-        Enemy.getEnemyPokemons()[1].getStats().setHp(Enemy.getEnemyPokemons()[1].getStats().getHp() - damage);
+        Enemy.getEnemyPokemons()[0].getStats().setHp(Enemy.getEnemyPokemons()[0].getStats().getHp() - effectivenessDamage1);
+        Enemy.getEnemyPokemons()[1].getStats().setHp(Enemy.getEnemyPokemons()[1].getStats().getHp() - effectivenessDamage2);
+        // Display enemy pokemons hp after damage
+        System.out.println("Hp after damage:");
+        System.out.println(Enemy.getEnemyPokemons()[0].getName() + " hp: "
+                + Enemy.getEnemyPokemons()[0].getStats().getHp());
+        System.out.println(Enemy.getEnemyPokemons()[1].getName() + " hp: "
+                + Enemy.getEnemyPokemons()[1].getStats().getHp());
+        Thread.sleep(3000);
     }
 
     private int calcDamage() {

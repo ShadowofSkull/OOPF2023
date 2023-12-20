@@ -10,11 +10,11 @@ public class Pokemon implements Cloneable { // Cloneable is used to clone the pr
     private int grade;
     private static Pokemon[] pokemons = {
             new Pokemon("Charmander", new PokemonType("Fire", "Fire Blast", "Fire Wall"), 100,
-                    new Stats(18000, 80, 100, 100), 1),
+                    new Stats(18000, 80, 70), 1),
             new Pokemon("Squirtle", new PokemonType("Water", "Water Blast", "Water Wall"), 100,
-                    new Stats(17000, 90, 100, 100), 1),
+                    new Stats(17000, 90, 60), 1),
             new Pokemon("Pikachu", new PokemonType("Electric", "Thunderbolt", "Electric Shield"), 100,
-                    new Stats(20000, 100, 100, 100), 1) };
+                    new Stats(20000, 100, 50), 2) };
 
     public Pokemon() {
     }
@@ -63,8 +63,7 @@ public class Pokemon implements Cloneable { // Cloneable is used to clone the pr
     // original or each other
     public Object clone() throws CloneNotSupportedException {
         Pokemon p = (Pokemon) super.clone();
-        p.stats = new Stats(this.stats.getHp(), this.stats.getAttackPower(), this.stats.getDefensePower(),
-                this.stats.getEffectiveness());
+        p.stats = new Stats(this.stats.getHp(), this.stats.getAttackPower(), this.stats.getDefensePower());
         return p;
     }
 
@@ -105,11 +104,11 @@ public class Pokemon implements Cloneable { // Cloneable is used to clone the pr
     public String toString() {
         return String.format(
                 "Name: %s\n" + "Type: %s\n" + "Power Level: %d\n" + "HP: %d\n" + "Attack Power: %d\n"
-                        + "Defense Power: %d\n" + "Effectiveness: %s\n" + "Unique Skill: %s\n" + "Unique Defense: %s\n"
+                        + "Defense Power: %d\n" + "Unique Skill: %s\n" + "Unique Defense: %s\n"
                         + "Weakness Type: %s\n" + "Effective Type: %s\n" + "Grade: %d",
                 this.name, this.type.getType(), this.power_level, this.stats.getHp(), this.stats.getAttackPower(),
-                this.stats.getDefensePower(), this.stats.getEffectiveness(), this.type.getUnique_skill(),
-                this.type.getUnique_defense(), this.type.getNonEffectiveType(), this.type.getEffective_type(),
+                this.stats.getDefensePower(), this.type.getUnique_skill(),
+                this.type.getUnique_defense(), this.type.getNonEffectiveType(), this.type.getEffectiveType(),
                 this.grade);
     }
 }

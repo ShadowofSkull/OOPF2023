@@ -30,8 +30,7 @@ public class Game {
             Thread.sleep(1000);
         }
         // Display enemy and ally hp
-        Display.displayPokemonsHP();
-
+        Battle.displayStats();
         // Battle phase
         Battle battle = new Battle(mash);
         battle.battle(); 

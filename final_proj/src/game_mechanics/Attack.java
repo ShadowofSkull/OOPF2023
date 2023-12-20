@@ -34,13 +34,14 @@ public class Attack {
         }
         // Spirit phase
         mash.setPhase("spirit");
-        while (mash.getPhase().equals("spirit")) {
-            MashButton.displayMashAnimation();
-            System.out.println("Press space to increase SPIRIT!");
+        // Allow user to mash for 1 seconds
+        // display sleep for 0.5 seconds every slide so 2 is 1 seconds
+        MashButton mashButton = new MashButton();
+        for (int i = 0; i < 3; i++) {
+            
+            mashButton.displayMashAnimation();
         }
 
-        // Allow user to mash for 1.5 seconds
-        Thread.sleep(1500);
         // Set phase to empty so spirit can't be increase anymore
         mash.setPhase("");
         System.out.println("Final Spirit: " + Spirit.getSpirit());

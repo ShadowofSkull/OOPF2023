@@ -1,7 +1,7 @@
 package Render;
 
 public class TitleScreen extends Display{
-    public static void displayTitleAnimation() {
+    public void displayTitleAnimation() throws InterruptedException {
         String[] titleAnimationSlides = {
         "__________       __                                    ________                        .__        ._._._.\r\n" + //
                 "\\______   \\____ |  | __ ____   _____   ____   ____    /  _____/_____              ____ |  |   ____| | | |\r\n" + //

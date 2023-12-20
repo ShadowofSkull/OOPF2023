@@ -16,15 +16,17 @@ public class Display {
         // Display ally pokemons
         System.out.println(Ally.getAllyPokemons()[0].getStats().getHp());
         System.out.println(Ally.getAllyPokemons()[1].getStats().getHp());
-        Thread.sleep(3000);
+        Thread.sleep(2000);
 
     }
 
-    public static void displaySlides(String[] slides) {
-        // Clear console
+    public void displaySlides(String[] slides) throws InterruptedException {
         for (String slide : slides) {
+            // Clear console
             System.out.println("\033c");
             System.out.println(slide);
+            Thread.sleep(500);
+
         }
 
     }

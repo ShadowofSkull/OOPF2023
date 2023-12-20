@@ -1,7 +1,20 @@
 package Render;
 
-public class MashButton extends Display{
-    public static void displayMashAnimation() {
+import game_mechanics.Spirit;
+
+public class MashButton extends Display {
+    @Override
+    public void displaySlides(String[] slides) throws InterruptedException {
+        for (String slide : slides) {
+            // Clear console
+            System.out.println("\033c");
+            System.out.println(slide);
+            System.out.println("Spirit: " + Spirit.getSpirit());
+            Thread.sleep(300);
+        }
+    }
+
+    public void displayMashAnimation() throws InterruptedException {
         String[] mashAnimationSlides = { "+----------------------------------------------------------------+\r\n" + //
                 "|                                                                |\r\n" + //
                 "|       |      |         /\\       //---\\   |       |    | | |    |\r\n" + //

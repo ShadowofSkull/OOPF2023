@@ -83,7 +83,6 @@ public class Mash extends JFrame implements KeyListener {
         // Spirit phase
         if (spacePressed && phase.equals("spirit")) {
             Spirit.increaseSpirit();
-            System.out.println("Spirit: " + Spirit.getSpirit());
         }
 
     }

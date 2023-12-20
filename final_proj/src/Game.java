@@ -3,7 +3,6 @@ import PokemonPack.Pokemon;
 import Render.Display;
 import Render.TitleScreen;
 import game_mechanics.Mash;
-import game_mechanics.PokeballRoulette;
 
 public class Game {
     public static void main(String[] args) throws Exception {
@@ -12,11 +11,11 @@ public class Game {
         
         // Title screen
         mash.setPhase("titleScreen");
-        TitleScreen.displayTitleAnimation();
-        // Only proceed when user presses enter
+        TitleScreen titleScreen = new TitleScreen();
         while (mash.getPhase().equals("titleScreen")) {
-            Thread.sleep(1000);
+            titleScreen.displayTitleAnimation();
         }
+
         // Choose one out of three pokemons
         Pokemon[] pokemons = Ally.displayPokemons();
         // Store pokemons in mash to know the pokemons that can be chosen by players

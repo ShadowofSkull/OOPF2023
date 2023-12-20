@@ -22,7 +22,7 @@ public class Catch {
         int ballGrade = pokeball.getCatchGrade();
         int catchChance = (int) (pokeball.getCatchChance() * 10);
         boolean allowCatch = false;
-        
+
         Random rand = new Random();
         int randNum = rand.nextInt(10);
         // Chance system
@@ -33,7 +33,7 @@ public class Catch {
                 break;
             case 3:
                 for (int i = 0; i < 3; i++) {
-                    if (randNum == i){
+                    if (randNum == i) {
                         allowCatch = true;
                         break;
                     }
@@ -41,7 +41,7 @@ public class Catch {
                 break;
             case 5:
                 for (int i = 0; i < 5; i++) {
-                    if (randNum == i){
+                    if (randNum == i) {
                         allowCatch = true;
                         break;
                     }
@@ -49,12 +49,12 @@ public class Catch {
                 break;
             case 9:
                 for (int i = 0; i < 9; i++) {
-                    if (randNum == i){
+                    if (randNum == i) {
                         allowCatch = true;
                         break;
                     }
                 }
-        
+                break;
             default:
                 System.out.println("Error in catch chance");
                 break;
@@ -76,10 +76,10 @@ public class Catch {
         }
         System.out.println(PokeballRoulette.getBallSelected());
 
-        if (enemy1Caught && enemy2Caught){
+        if (enemy1Caught && enemy2Caught) {
             return true;
         }
         return false;
-            
+
     }
 }

@@ -57,10 +57,11 @@ public class Battle {
         Pokemon enemy1 = Enemy.getEnemyPokemons()[0];
         Pokemon enemy2 = Enemy.getEnemyPokemons()[1];
         // Display stats of ally and enemy pokemon
+        System.out.println("All pokemons current status");
         System.out.print("Ally Pokemon 1: " + ally1.getName() + " HP: " + ally1.getStats().getHp() + " Type: " + ally1.getType().getType() + "\t\t");
         System.out.println("Enemy Pokemon 1: " + enemy1.getName() + " HP: " + enemy1.getStats().getHp() + " Type: " + enemy1.getType().getType());
         System.out.print("Ally Pokemon 2: " + ally2.getName() + " HP: " + ally2.getStats().getHp() + " Type: " + ally2.getType().getType() + "\t\t");
         System.out.println("Enemy Pokemon 2: " + enemy2.getName() + " HP: " + enemy2.getStats().getHp() + " Type: " + enemy2.getType().getType());
-        Thread.sleep(5000);
+        Thread.sleep(6000);
     }
 }

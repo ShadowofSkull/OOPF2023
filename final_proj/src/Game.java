@@ -1,6 +1,5 @@
 import PokemonPack.Ally;
 import PokemonPack.Pokemon;
-import Render.Display;
 import Player.Player;
 import Render.TitleScreen;
 import Render.Leaderboard;

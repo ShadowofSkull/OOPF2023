@@ -63,18 +63,18 @@ public class Catch {
         boolean enemy2Caught = false;
         // comparing grade of enemy pokemon to grade of pokeball and chance
         if ((enemyGrade1 <= ballGrade) && allowCatch && pokemonCatchable(enemy[0])) {
-            System.out.println("Pokemon1 caught");
+            System.out.printf("Enemy Pokemon 1 %s is caught with %s%n", enemy[0].getName(), pokeball.getType());
             enemy1Caught = true;
         } else {
-            System.out.println("Pokemon1 not caught");
+            System.out.printf("Enemy Pokemon 1 %s is not caught with %s%n", enemy[0].getName(), pokeball.getType());
         }
         if ((enemyGrade2 <= ballGrade) && allowCatch && pokemonCatchable(enemy[1])) {
-            System.out.println("Pokemon2 caught");
+            System.out.printf("Enemy Pokemon 2 %s is caught with %s%n", enemy[1].getName(), pokeball.getType());
             enemy2Caught = true;
         } else {
-            System.out.println("Pokemon2 not caught");
+            System.out.printf("Enemy Pokemon 2 %s is not caught with %s%n", enemy[1].getName(), pokeball.getType());
         }
-        System.out.println(PokeballRoulette.getBallSelected());
+        
 
         if (enemy1Caught && enemy2Caught) {
             return true;

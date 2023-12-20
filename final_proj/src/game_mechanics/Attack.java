@@ -4,6 +4,7 @@ import PokemonPack.Ally;
 import PokemonPack.Enemy;
 import PokemonPack.Pokemon;
 import Render.MashButton;
+import Render.*;
 
 public class Attack {
     private AttackRoulette attackRoulette;
@@ -46,6 +47,19 @@ public class Attack {
         // Set phase to empty so spirit can't be increase anymore
         mash.setPhase("");
         System.out.println("Final Spirit: " + Spirit.getSpirit());
+
+        // Display attack animation
+        if (attackingPokemon.getType().getType() == "Fire") {
+            FireAttack fire = new FireAttack();
+            fire.displayFireAnimation();
+        } else if (attackingPokemon.getType().getType() == "Water") {
+            WaterAttack water = new WaterAttack();
+            water.displayWaterAnimation();
+        } else if (attackingPokemon.getType().getType() == "Electric") {
+            LightningAttack electric = new LightningAttack();
+            electric.displayLightningAnimation();
+        }
+
         // Calculate damage
         Attack.damage = calcDamage();
         Attack.totalDamage += Attack.damage;

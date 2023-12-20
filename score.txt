@@ -4,3 +4,4 @@ Jenny|70
 test|100
 test2|200
 test3|300
+A|32000

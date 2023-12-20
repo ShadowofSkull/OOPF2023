@@ -8,6 +8,7 @@ import Render.MashButton;
 public class Attack {
     private AttackRoulette attackRoulette;
     private Mash mash;
+    private static int totalDamage = 0;
     private Pokemon attackingPokemon;
     private int turn = 1;
     private static int damage;
@@ -47,6 +48,7 @@ public class Attack {
         System.out.println("Final Spirit: " + Spirit.getSpirit());
         // Calculate damage
         Attack.damage = calcDamage();
+        Attack.totalDamage += Attack.damage;
         System.out.println("Damage: " + damage);
         // Reduce enemy pokemons hp
         Enemy.getEnemyPokemons()[0].getStats().setHp(Enemy.getEnemyPokemons()[0].getStats().getHp() - damage);
@@ -59,5 +61,9 @@ public class Attack {
 
     public static int getDamage() {
         return damage;
+    }
+
+    public static int getTotalDamage() {
+        return totalDamage;
     }
 }

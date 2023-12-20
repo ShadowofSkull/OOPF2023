@@ -15,11 +15,7 @@ public class Player {
     }
 
     public void setName(String name) {
-        if (name.length() >= 3 && name.length() <= 15) {
-            this.name = name;
-        } else {
-            throw new IllegalArgumentException("Name must be between 3 and 15 characters.");
-        }
+        this.name = name;
     }
 
     public void setScore(int score) {

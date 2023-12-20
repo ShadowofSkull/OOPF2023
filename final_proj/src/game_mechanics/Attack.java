@@ -10,7 +10,7 @@ public class Attack {
     private Mash mash;
     private Pokemon attackingPokemon;
     private int turn = 1;
-    private int damage;
+    private static int damage;
 
     public Attack(AttackRoulette attackRoulette, Mash mash) {
         this.attackRoulette = attackRoulette;
@@ -46,7 +46,7 @@ public class Attack {
         mash.setPhase("");
         System.out.println("Final Spirit: " + Spirit.getSpirit());
         // Calculate damage
-        this.damage = calcDamage();
+        Attack.damage = calcDamage();
         System.out.println("Damage: " + damage);
         // Reduce enemy pokemons hp
         Enemy.getEnemyPokemons()[0].getStats().setHp(Enemy.getEnemyPokemons()[0].getStats().getHp() - damage);
@@ -57,7 +57,7 @@ public class Attack {
         return attackRoulette.getDamageBoost() * Spirit.getSpirit() * attackingPokemon.getStats().getAttackPower();
     }
 
-    public int getDamage() {
+    public static int getDamage() {
         return damage;
     }
 }

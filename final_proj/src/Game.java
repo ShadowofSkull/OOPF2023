@@ -2,6 +2,7 @@ import PokemonPack.Ally;
 import PokemonPack.Pokemon;
 import Render.Display;
 import Render.TitleScreen;
+import Render.Leaderboard;
 import game_mechanics.Mash;
 
 public class Game {
@@ -30,8 +31,10 @@ public class Game {
 
         // Battle phase
         Battle battle = new Battle(mash);
-        battle.battle();
+        battle.battle(); 
         // Scoreboard
+        Leaderboard scoreboard = new Leaderboard();
+        
 
     }
 

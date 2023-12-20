@@ -1,5 +1,7 @@
 package Player;
 
+import game_mechanics.Attack;
+
 public class Player {
     private String name;
     private int score;
@@ -22,7 +24,7 @@ public class Player {
 
     public void setScore(int score) {
         if (score >= 0) {
-            this.score = score;
+            this.score += Attack.getDamage();
         } else {
             throw new IllegalArgumentException("Score must be a positive integer.");
         }

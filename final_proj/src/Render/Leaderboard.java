@@ -1,4 +1,4 @@
-package Player;
+package Render;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class Score {
+public class Leaderboard {
     public List<List<String>> scores;
     private String filePath;
 
-    public Score() {
+    public Leaderboard() {
         this.filePath = "score.txt"; // MAKE SURE when reading the file, the .txt file must have 1 empty line at the end of the file, or error will form
     }
 

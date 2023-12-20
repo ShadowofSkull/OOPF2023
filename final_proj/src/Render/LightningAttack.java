@@ -1,9 +1,8 @@
-public class LightningAttack {
-    public LightningAttack() {
+package Render;
+public class LightningAttack extends Display{
+   
 
-    }
-
-    public void displayLightningAnimation() {
+    public void displayLightningAnimation() throws InterruptedException {
         String[] lightningAnimationSlides = {
             "                                                                                                    \r\n" + //
                     "                                                                                                    \r\n" + //
@@ -225,6 +224,6 @@ public class LightningAttack {
                             "                                                                                                    \r\n" + //
                             "                                                                                                    \r\n" + //
                             "                                                                                                    "};
-        displayAnimation(lightningAnimationSlides) // change later;
+        displaySlides(lightningAnimationSlides); // change later;
     }
 }

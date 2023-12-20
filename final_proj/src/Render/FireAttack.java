@@ -1,8 +1,8 @@
-public class FireAttack {
-    public FireAttack() {
-    }
+package Render;
 
-    public void displayFireAnimation() {
+public class FireAttack extends Display {
+
+    public void displayFireAnimation() throws InterruptedException {
         String[] fireAnimationSlides = {
             "                                                                                                    \r\n" + //
                     "                                                                                                    \r\n" + //
@@ -236,5 +236,8 @@ public class FireAttack {
                     "                                                                                                    \r\n" + //
                     "                                                                                                    \r\n" + //
                     "                                                                                                    "};
-    } 
+                displaySlides(fireAnimationSlides);
+        } 
+        
 }
+

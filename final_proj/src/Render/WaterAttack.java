@@ -1,10 +1,8 @@
-package test;
+package Render;
 
-public class WaterAttack {
-    public WaterAttack() {
-    }
-
-    public void displayWaterAnimation() {
+public class WaterAttack extends Display{
+    
+    public void displayWaterAnimation() throws InterruptedException {
         String[] waterAnimationSlides = {
             "                                                                                                    \r\n" + //
                     "                                                                                                    \r\n" + //
@@ -226,5 +224,6 @@ public class WaterAttack {
                     "                                                                                                    \r\n" + //
                     "                                                                                                    \r\n" + //
                     "                                                                                                    "};
+        displaySlides(waterAnimationSlides);
     }
 }

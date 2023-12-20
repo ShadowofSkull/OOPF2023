@@ -1,8 +1,8 @@
-public class CatchingScreen {
-    public CatchingScreen() { // empty constructor
-    }
+package Render;
+public class CatchingScreen extends Display {
 
-    public void displayCatchingAnimation() {
+    
+    public void displayCatchingAnimation() throws InterruptedException {
         String[] catchAnimationSlides = {
             "_________         __         .__    .__                         \r\n" + //
                     "\\_   ___ \\_____ _/  |_  ____ |  |__ |__| ____   ____            \r\n" + //
@@ -60,7 +60,6 @@ public class CatchingScreen {
                     "                                                              \r\n" + //
                     "                                                              \r\n" + //
                     "                                                              "};
-
-        displayAnimation(catchAnimationSlides); // This is a placeholder method to display the animation. You may change this method to your own preferred method
+        displaySlides(catchAnimationSlides);
     }
 }

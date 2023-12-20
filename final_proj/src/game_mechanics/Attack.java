@@ -46,16 +46,34 @@ public class Attack {
         System.out.println("Final Spirit: " + Spirit.getSpirit());
         Thread.sleep(2000);
         // Display attack animation
-        if (attackingPokemon.getType().getType() == "Fire") {
-            FireAttack fire = new FireAttack();
-            fire.displayFireAnimation();
-        } else if (attackingPokemon.getType().getType() == "Water") {
-            WaterAttack water = new WaterAttack();
-            water.displayWaterAnimation();
-        } else if (attackingPokemon.getType().getType() == "Electric") {
-            LightningAttack electric = new LightningAttack();
-            electric.displayLightningAnimation();
+        // if (attackingPokemon.getType().getType() == "Fire") {
+        //     FireAttack fire = new FireAttack();
+        //     fire.displayFireAnimation();
+        // } else if (attackingPokemon.getType().getType() == "Water") {
+        //     WaterAttack water = new WaterAttack();
+        //     water.displayWaterAnimation();
+        // } else if (attackingPokemon.getType().getType() == "Electric") {
+        //     LightningAttack electric = new LightningAttack();
+        //     electric.displayLightningAnimation();
+        // }
+        
+        // Switch statement to display attack animation
+        switch (attackingPokemon.getType().getType()) {
+            case "Fire":
+                FireAttack fire = new FireAttack();
+                fire.displayFireAnimation();
+                break;
+            case "Water":
+                WaterAttack water = new WaterAttack();
+                water.displayWaterAnimation();
+                break;
+            case "Electric":
+                LightningAttack electric = new LightningAttack();
+                electric.displayLightningAnimation();
+                break;
         }
+
+
 
         // Calculate damage
         Attack.damage = calcDamage();

@@ -36,8 +36,8 @@ public class Game {
         
         // Scoreboard and player
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your name: ");
-        String name = sc.nextLine();
+        System.out.println("Enter your name below: ");
+        String name = sc.next();
         Player player = new Player(name, Attack.getTotalDamage());
         Leaderboard scoreboard = new Leaderboard();
         scoreboard.updateScore(player.getName(), player.getScore());

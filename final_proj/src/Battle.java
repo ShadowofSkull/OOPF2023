@@ -20,8 +20,7 @@ public class Battle {
 
     // Battle phase
     public void battle() throws InterruptedException {
-        while (Enemy.getEnemyPokemons()[0].getStats().getHp() > 0
-                && Enemy.getEnemyPokemons()[1].getStats().getHp() > 0) {
+        while (true) {
             // Attack phase
             attack.attack();
             Battle.displayStats();
@@ -35,11 +34,18 @@ public class Battle {
                 }
                 Catch.pokeballCaught();
                 return;
-                
+
             }
             // Defense phase
             defend.defend();
             Battle.displayStats();
+
+            // Check if player lost
+            if (Ally.getAllyPokemons()[0].getStats().getHp() <= 0
+                    && Ally.getAllyPokemons()[1].getStats().getHp() <= 0) {
+                System.out.println("You lost");
+                return;
+            }
         }
 
     }

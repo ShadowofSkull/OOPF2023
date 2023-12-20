@@ -5,11 +5,16 @@ import PokemonPack.Enemy;
 import PokemonPack.Pokemon;
 import PokemonPack.PokemonType;
 import PokemonPack.Stats;
+import Render.MashButton;
+import game_mechanics.Mash;
 
-public class Test{
+public class Test {
 
     public static void main(String[] args) {
-        // System.out.println(Ally.displayPokemons());
-        System.out.println(Enemy.getEnemyPokemons());
+        Mash mash = new Mash();
+        mash.setPhase("mash");
+        while (true)
+            MashButton.displayMashAnimation();
+
     }
 }

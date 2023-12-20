@@ -1,5 +1,6 @@
 package game_mechanics;
 
+import java.awt.RenderingHints.Key;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
@@ -46,6 +47,12 @@ public class Mash extends JFrame implements KeyListener {
         int keyCode = e.getKeyCode();
         // Check if space is pressed
         boolean spacePressed = (keyCode == KeyEvent.VK_SPACE);
+
+        // Title screen
+        if ((keyCode == KeyEvent.VK_ENTER) && phase.equals("titleScreen")) {
+            System.out.println("Game loading please wait");
+            setPhase("choosePokemon");
+        }
         // Check if phase is choosePokemon
         if (phase.equals("choosePokemon")) {
             // Let user pick one out of three pokemons
@@ -65,10 +72,6 @@ public class Mash extends JFrame implements KeyListener {
                 setPhase("battle");
             }
 
-        }
-        // Battle phase
-        if (spacePressed && phase.equals("battle")) {
-            System.out.println("battle");
         }
 
         // Attack/Defense/Pokeball roulette

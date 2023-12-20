@@ -9,7 +9,7 @@ public class AttackRoulette extends Roulette {
     }
 
     public void displayAttackAnimation() throws InterruptedException {
-        String[] attackAnimationSlides = {"                                                       \r\n" + //
+        String[] attackAnimationSlides = { "                                                       \r\n" + //
                 "               -------------------------               \r\n" + //
                 "             -/  +-------------------+  \\-             \r\n" + //
                 "           -/    | ----- |   |-----  |    \\-           \r\n" + //
@@ -63,7 +63,8 @@ public class AttackRoulette extends Roulette {
                         "          \\-                               -/          \r\n" + //
                         "            \\-                           -/            \r\n" + //
                         "              \\-                       -/              \r\n" + //
-                        "               -------------------------               ", "                                                       \r\n" + //
+                        "               -------------------------               ",
+                "                                                       \r\n" + //
                         "               -------------------------               \r\n" + //
                         "             -/                         \\-             \r\n" + //
                         "           -/      ----- |   |-----       \\-           \r\n" + //
@@ -89,9 +90,9 @@ public class AttackRoulette extends Roulette {
                         "          \\-                               -/          \r\n" + //
                         "            \\-                           -/            \r\n" + //
                         "              \\-                       -/              \r\n" + //
-                        "               -------------------------               "};
+                        "               -------------------------               " };
 
-        displayAnimation(attackAnimationSlides); 
+        displayRoulette(attackAnimationSlides);
         switch (super.getIndex()) {
             case 0:
                 this.damageBoost = 35;

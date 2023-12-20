@@ -24,6 +24,7 @@ public class Defend {
 
     public void defend() throws InterruptedException {
         mash.setPhase("defendRoulette");
+
         while (mash.getPhase().equals("defendRoulette")) {
             defendRoulette.displayDefendAnimation();
         }

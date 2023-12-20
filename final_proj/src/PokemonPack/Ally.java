@@ -1,6 +1,5 @@
 package PokemonPack;
 
-import java.util.Arrays;
 
 public class Ally{
     private static Pokemon[] allyPokemons = new Pokemon[2];
@@ -10,7 +9,7 @@ public class Ally{
         allyPokemons[1] = pokemon;
     }
 
-    // To clone pokemon and throw exception if it fails
+    // To clone premade pokemon stats so it doesn't modify the premade stats and throw exception if it fails
     private static Pokemon clonePokemon(Pokemon pokemon) {
         try {
             return (Pokemon) pokemon.clone();
@@ -24,12 +23,8 @@ public class Ally{
         return allyPokemons;
     }
 
-    public static void displayHP(){
-        System.out.println("Ally Pokemon 1 HP: " + allyPokemons[0].getStats().getHp());
-        System.out.println("Ally Pokemon 2 HP: " + allyPokemons[1].getStats().getHp());
-    }
-
     public static Pokemon[] displayPokemons() {
+        System.out.println("\033c");
         System.out.println("Pick a pokemon by pressing 1-3 to choose: ");
         Pokemon pokemon1 = Pokemon.getRandomPokemon();
         Pokemon pokemon2 = Pokemon.getRandomPokemon();

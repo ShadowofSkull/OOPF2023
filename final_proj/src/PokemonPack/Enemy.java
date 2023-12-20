@@ -8,7 +8,7 @@ public class Enemy {
             clonePokemon(Pokemon.getRandomPokemon())
     };
 
-    // To clone pokemon and throw exception if it fails
+    // To clone premade pokemon stats so it doesn't modify the premade stats and throw exception if it fails
     private static Pokemon clonePokemon(Pokemon pokemon) {
         try {
             return (Pokemon) pokemon.clone();
@@ -20,11 +20,6 @@ public class Enemy {
 
     public static Pokemon[] getEnemyPokemons() {
         return enemyPokemons;
-    }
-
-    public static void displayHP() {
-        System.out.println("Enemy Pokemon 1 HP: " + enemyPokemons[0].getStats().getHp());
-        System.out.println("Enemy Pokemon 2 HP: " + enemyPokemons[1].getStats().getHp());
     }
 
     public static int botDamage() {

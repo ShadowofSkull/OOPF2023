@@ -3,8 +3,9 @@ package game_mechanics;
 import PokemonPack.Ally;
 import PokemonPack.Enemy;
 import PokemonPack.Pokemon;
+import Render.MashButton;
 
-public class Attack{
+public class Attack {
     private AttackRoulette attackRoulette;
     private Mash mash;
     private Pokemon attackingPokemon;
@@ -16,16 +17,16 @@ public class Attack{
         this.mash = mash;
     }
 
-    public void attack() throws InterruptedException{
+    public void attack() throws InterruptedException {
         // To allow ally pokemon to attack in turns
-        if (turn == 1){
+        if (turn == 1) {
             turn = 0;
-        }
-        else if (turn == 0){
+        } else if (turn == 0) {
             turn = 1;
         }
         attackingPokemon = Ally.getAllyPokemons()[turn];
-
+        System.out.println("Attacking pokemon: " + attackingPokemon.getName());
+        Thread.sleep(1500);
         // Attack roulette
         mash.setPhase("attackRoulette");
         while (mash.getPhase().equals("attackRoulette")) {
@@ -33,9 +34,15 @@ public class Attack{
         }
         // Spirit phase
         mash.setPhase("spirit");
-        System.out.println("Press space to increase SPIRIT!");
-        // Allow user to mash for 2 seconds
-        Thread.sleep(2000);
+        while (mash.getPhase().equals("spirit")) {
+            MashButton.displayMashAnimation();
+            System.out.println("Press space to increase SPIRIT!");
+        }
+
+        // Allow user to mash for 1.5 seconds
+        Thread.sleep(1500);
+        // Set phase to empty so spirit can't be increase anymore
+        mash.setPhase("");
         System.out.println("Final Spirit: " + Spirit.getSpirit());
         // Calculate damage
         this.damage = calcDamage();

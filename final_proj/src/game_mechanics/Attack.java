@@ -26,8 +26,8 @@ public class Attack {
             turn = 1;
         }
         attackingPokemon = Ally.getAllyPokemons()[turn];
-        System.out.println("Attacking pokemon: " + attackingPokemon.getName());
-        Thread.sleep(1500);
+        System.out.println("ATTACKING ALLY POKEMON: " + attackingPokemon.getName().toUpperCase());
+        Thread.sleep(5000);
         // Attack roulette
         mash.setPhase("attackRoulette");
         while (mash.getPhase().equals("attackRoulette")) {
@@ -37,26 +37,16 @@ public class Attack {
         mash.setPhase("spirit");
         // Display spirit animation
         MashButton mashButton = new MashButton();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             mashButton.displayMashAnimation();
         }
 
         // Set phase to empty so spirit can't be increase anymore
         mash.setPhase("");
-        System.out.println("Final Spirit: " + Spirit.getSpirit());
+        System.out.println("\033c");
+        System.out.println("FINAL SPIRIT: " + Spirit.getSpirit());
         Thread.sleep(2000);
-        // Display attack animation
-        // if (attackingPokemon.getType().getType() == "Fire") {
-        //     FireAttack fire = new FireAttack();
-        //     fire.displayFireAnimation();
-        // } else if (attackingPokemon.getType().getType() == "Water") {
-        //     WaterAttack water = new WaterAttack();
-        //     water.displayWaterAnimation();
-        // } else if (attackingPokemon.getType().getType() == "Electric") {
-        //     LightningAttack electric = new LightningAttack();
-        //     electric.displayLightningAnimation();
-        // }
-        
+
         // Switch statement to display attack animation
         switch (attackingPokemon.getType().getType()) {
             case "Fire":
@@ -72,8 +62,6 @@ public class Attack {
                 electric.displayLightningAnimation();
                 break;
         }
-
-
 
         // Calculate damage
         Attack.damage = calcDamage();
@@ -106,25 +94,30 @@ public class Attack {
         }
         Attack.totalDamage += (effectivenessDamage1 + effectivenessDamage2);
         // Display hp before attack
-        System.out.println("Before attack:");
-        System.out.println(Enemy.getEnemyPokemons()[0].getName() + " hp: "
-                + Enemy.getEnemyPokemons()[0].getStats().getHp());
-        System.out.println(Enemy.getEnemyPokemons()[1].getName() + " hp: "
-                + Enemy.getEnemyPokemons()[1].getStats().getHp() + "\n");
+        System.out.println("BEFORE ATTACK:");
+        System.out.println(Enemy.getEnemyPokemons()[0].getName() + " HP: "
+            + Enemy.getEnemyPokemons()[0].getStats().getHp());
+        System.out.println(Enemy.getEnemyPokemons()[1].getName() + " HP: "
+            + Enemy.getEnemyPokemons()[1].getStats().getHp() + "\n");
         // Display damage caused
-        System.out.println("Damage landed:");
-        System.out.println("Damage to " + enemy1.getName() + ": " + effectivenessDamage1);
-        System.out.println("Damage to" + enemy2.getName() + ": " + effectivenessDamage2 + "\n");
+        System.out.println("DAMAGE CAUSED:");
+        System.out.println("Damage to " + enemy1.getName().toUpperCase() + ": " + effectivenessDamage1);
+        System.out.println("Damage to " + enemy2.getName().toUpperCase() + ": " + effectivenessDamage2 + "\n");
+
         // Reduce enemy pokemons hp
         Enemy.getEnemyPokemons()[0].getStats()
-                .setHp(Enemy.getEnemyPokemons()[0].getStats().getHp() - effectivenessDamage1);
+            .setHp(Enemy.getEnemyPokemons()[0].getStats().getHp() - effectivenessDamage1);
         Enemy.getEnemyPokemons()[1].getStats()
-                .setHp(Enemy.getEnemyPokemons()[1].getStats().getHp() - effectivenessDamage2);
+            .setHp(Enemy.getEnemyPokemons()[1].getStats().getHp() - effectivenessDamage2);
+
+        // Display hp after attack
+        System.out.println("AFTER ATTACK:");
+        Display.displayStats();
 
     }
 
     private int calcDamage() {
-        return attackRoulette.getDamageBoost() * Spirit.getSpirit() * attackingPokemon.getStats().getAttackPower();
+        return attackRoulette.getDamageBoost() * Spirit.getSpirit() * attackingPokemon.getStats().getAttackPower() / 10;
     }
 
     public static int getDamage() {

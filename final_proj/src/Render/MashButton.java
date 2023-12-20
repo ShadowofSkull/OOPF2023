@@ -10,7 +10,7 @@ public class MashButton extends Display {
             System.out.println("\033c");
             System.out.println(slide);
             System.out.println("Spirit: " + Spirit.getSpirit());
-            Thread.sleep(200);
+            Thread.sleep(100);
         }
     }
 

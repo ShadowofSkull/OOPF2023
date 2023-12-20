@@ -9,12 +9,19 @@ public class Pokemon implements Cloneable { // Cloneable is used to clone the pr
     private Stats stats;
     private int grade;
     private static Pokemon[] pokemons = {
-            new Pokemon("Charmander", new PokemonType("Fire", "Fire Blast", "Fire Wall"), 100,
-                    new Stats(18000, 80, 70), 1),
-            new Pokemon("Squirtle", new PokemonType("Water", "Water Blast", "Water Wall"), 100,
-                    new Stats(17000, 90, 60), 1),
-            new Pokemon("Pikachu", new PokemonType("Electric", "Thunderbolt", "Electric Shield"), 100,
-                    new Stats(20000, 100, 50), 2) };
+        new Pokemon("Charmander", new PokemonType("Fire", "Fire Blast", "Fire Wall"), 100,
+            new Stats(18000, 80, 30), 1),
+        new Pokemon("Squirtle", new PokemonType("Water", "Water Blast", "Water Wall"), 100,
+            new Stats(17000, 90, 40), 1),
+        new Pokemon("Pikachu", new PokemonType("Electric", "Thunderbolt", "Electric Shield"), 100,
+            new Stats(20000, 100, 30), 3),
+        new Pokemon("Vulpix", new PokemonType("Fire", "Flamethrower", "Fire Spin"), 100,
+            new Stats(16000, 70, 35), 2),
+        new Pokemon("Voltorb", new PokemonType("Electric", "Thunder Shock", "Self-Destruct"), 100,
+            new Stats(15000, 85, 45), 2),
+        new Pokemon("Gyarados", new PokemonType("Water", "Hydro Pump", "Dragon Dance"), 100,
+            new Stats(22000, 95, 40), 4)
+    };
 
     public Pokemon() {
     }
@@ -55,7 +62,7 @@ public class Pokemon implements Cloneable { // Cloneable is used to clone the pr
 
     public static Pokemon getRandomPokemon() {
         Random rand = new Random();
-        int randNum = rand.nextInt(3);
+        int randNum = rand.nextInt(6);
         return pokemons[randNum];
     }
 

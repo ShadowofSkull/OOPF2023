@@ -50,24 +50,24 @@ public class Mash extends JFrame implements KeyListener {
 
         // Title screen
         if ((keyCode == KeyEvent.VK_ENTER) && phase.equals("titleScreen")) {
-            System.out.println("Game loading please wait");
+            System.out.println("GAME LOADING PLEASE WAIT");
             setPhase("choosePokemon");
         }
         // Check if phase is choosePokemon
         if (phase.equals("choosePokemon")) {
             // Let user pick one out of three pokemons
             if (keyCode == KeyEvent.VK_1) {
-                System.out.println("Picked 1, Game loading please wait");
+                System.out.printf("PICKED %s, GAME LOADING PLEASE WAIT%n", pokemons[0].getName());
                 Ally.choosePokemon(pokemons[0]);
                 setPhase("battle");
             }
             if (keyCode == KeyEvent.VK_2) {
-                System.out.println("Picked 2, Game loading please wait");
+                System.out.printf("PICKED %s, GAME LOADING PLEASE %n", pokemons[1].getName());
                 Ally.choosePokemon(pokemons[1]);
                 setPhase("battle");
             }
             if (keyCode == KeyEvent.VK_3) {
-                System.out.println("Picked 3, Game loading please wait");
+                System.out.printf("PICKED %s, GAME LOADING PLEASE %n", pokemons[2].getName());
                 Ally.choosePokemon(pokemons[2]);
                 setPhase("battle");
             }

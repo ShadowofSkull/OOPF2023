@@ -94,10 +94,10 @@ public class DefendRoulette extends Roulette {
 
         switch (super.getIndex()) {
             case 0:
-                this.defendBoost = 30;
+                this.defendBoost = 10;
                 break;
             case 1:
-                this.defendBoost = 50;
+                this.defendBoost = 20;
                 break;
             case 2:
                 this.defendBoost = 0;

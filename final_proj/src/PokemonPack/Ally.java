@@ -26,9 +26,9 @@ public class Ally{
     public static Pokemon[] displayPokemons() {
         System.out.println("\033c");
         System.out.println("Pick a pokemon by pressing 1-3 to choose: ");
-        Pokemon pokemon1 = Pokemon.getRandomPokemon();
-        Pokemon pokemon2 = Pokemon.getRandomPokemon();
-        Pokemon pokemon3 = Pokemon.getRandomPokemon();
+        Pokemon pokemon1 = clonePokemon(Pokemon.getRandomPokemon());
+        Pokemon pokemon2 = clonePokemon(Pokemon.getRandomPokemon());
+        Pokemon pokemon3 = clonePokemon(Pokemon.getRandomPokemon());
         System.out.println("1. " + pokemon1.getName());
         System.out.println("2. " + pokemon2.getName());
         System.out.println("3. " + pokemon3.getName());

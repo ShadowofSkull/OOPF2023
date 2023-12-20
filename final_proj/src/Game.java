@@ -2,6 +2,7 @@ import PokemonPack.Ally;
 import PokemonPack.Pokemon;
 import Player.Player;
 import Render.TitleScreen;
+import Render.Display;
 import Render.Leaderboard;
 import game_mechanics.Attack;
 import game_mechanics.Mash;
@@ -28,8 +29,12 @@ public class Game {
         while (mash.getPhase().equals("choosePokemon")) {
             Thread.sleep(1000);
         }
+        // Display the other pokemon that was not picked
+        System.out.printf("GUESS THAT POKEMON! IT'S %s! ANOTHER POKEMON IS JOINING YOU ON YOUR JOURNEY!\n", Ally.getAllyPokemons()[0].getName());
+        
         // Display enemy and ally hp
-        Battle.displayStats();
+        Display.displayStats();
+        
         // Battle phase
         Battle battle = new Battle(mash);
         battle.battle(); 

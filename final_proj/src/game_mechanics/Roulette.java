@@ -20,7 +20,7 @@ public class Roulette {
             System.out.println("Press space to stop the roulette");
 
             index++;
-            Thread.sleep(500);
+            Thread.sleep(250);
         }
     }
 

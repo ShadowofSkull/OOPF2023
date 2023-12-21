@@ -208,29 +208,31 @@ public class PokemonRender {
           System.out.println("Level: " + pokemon.getGrade());
 
           // Display the render specific to Pikachu
-          if ("pikachu".equals(pokemon.getName())) {
+          if ("Pikachu".equals(pokemon.getName())) {
               System.out.println(PIKACHU_RENDER);
           }
 
-          if ("charmander".equals(pokemon.getName())) {
+          if ("Charmander".equals(pokemon.getName())) {
               System.out.println(CHARMANDER_RENDER);
           }
 
-          if ("squirtle".equals(pokemon.getName())) {
+          if ("Squirtle".equals(pokemon.getName())) {
               System.out.println(SQUIRTLE_RENDER);
           }
 
-          if ("voltorb".equals(pokemon.getName())) {
-              System.out.println(SQUIRTLE_RENDER);
+          if ("Voltorb".equals(pokemon.getName())) {
+              System.out.println(VOLTORB_RENDER);
           }
 
-          if ("vulpix".equals(pokemon.getName())) {
+          if ("Vulpix".equals(pokemon.getName())) {
               System.out.println(VULPIX_RENDER);
           }
 
-          if ("gyarados".equals(pokemon.getName())) {
-              System.out.println(VULPIX_RENDER);
+          if ("Gyarados".equals(pokemon.getName())) {
+              System.out.println(GYARADOS_RENDER);
           }
+
+
 
           // Add other Pokemon renders as needed
       }

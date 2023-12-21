@@ -3,6 +3,7 @@ import PokemonPack.Pokemon;
 import Player.Player;
 import Render.TitleScreen;
 import Render.Display;
+import Render.GameOver;
 import Render.Leaderboard;
 import game_mechanics.Attack;
 import game_mechanics.Mash;
@@ -47,8 +48,14 @@ public class Game {
         Leaderboard scoreboard = new Leaderboard();
         scoreboard.updateScore(player.getName(), player.getScore());
         scoreboard.printScore();
+        Thread.sleep(5000);
+        System.out.println("\033c");
 
-
+        // End game
+        System.out.println("THANKS FOR PLAYING!");
+        GameOver.displayGameOver();
+        Thread.sleep(5000);
+        
     }
 
 }

@@ -4,6 +4,10 @@ import PokemonPack.Ally;
 import PokemonPack.Enemy;
 import PokemonPack.Pokemon;
 import Render.Display;
+import Render.FireAttack;
+import Render.LightningAttack;
+import Render.PokemonRender;
+import Render.WaterAttack;
 
 public class Defend {
     private DefendRoulette defendRoulette;
@@ -34,6 +38,8 @@ public class Defend {
         }
         attackingPokemon = Enemy.getEnemyPokemons()[turn];
         System.out.println("ATTACKING ENEMY POKEMON: " + attackingPokemon.getName().toUpperCase());
+        // Display ASCII art
+        PokemonRender.displayPokemon(attackingPokemon);
         Thread.sleep(5000);
         mash.setPhase("defendRoulette");
         while (mash.getPhase().equals("defendRoulette")) {
@@ -68,6 +74,21 @@ public class Defend {
             if (nonEffective.equals(ally2Type)) {
                 botDamage *= 0.5;
             }
+        }
+        // Switch statement to display attack animation
+        switch (attackingPokemon.getType().getType()) {
+            case "Fire":
+                FireAttack fire = new FireAttack();
+                fire.displayFireAnimation();
+                break;
+            case "Water":
+                WaterAttack water = new WaterAttack();
+                water.displayWaterAnimation();
+                break;
+            case "Electric":
+                LightningAttack electric = new LightningAttack();
+                electric.displayLightningAnimation();
+                break;
         }
         
         System.out.println("BEFORE ATTACK:");

@@ -1,5 +1,4 @@
 package game_mechanics;
-
 import PokemonPack.Ally;
 import PokemonPack.Enemy;
 import PokemonPack.Pokemon;
@@ -27,6 +26,8 @@ public class Attack {
         }
         attackingPokemon = Ally.getAllyPokemons()[turn];
         System.out.println("ATTACKING ALLY POKEMON: " + attackingPokemon.getName().toUpperCase());
+        // Display ASCII art
+        PokemonRender.displayPokemon(attackingPokemon);
         Thread.sleep(5000);
         // Attack roulette
         mash.setPhase("attackRoulette");

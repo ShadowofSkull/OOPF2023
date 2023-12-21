@@ -8,8 +8,9 @@ public class MashButton extends Display {
         for (String slide : slides) {
             // Clear console
             System.out.println("\033c");
-            System.out.println(slide);
-            System.out.println("Spirit: " + Spirit.getSpirit());
+            System.out.println(slide.toUpperCase()); // Capitalize all words
+            System.out.println("SMASH SPACEBAR TO INCREASE YOUR SPIRIT!");
+            System.out.println("SPIRIT: " + Spirit.getSpirit());
             Thread.sleep(100);
         }
     }

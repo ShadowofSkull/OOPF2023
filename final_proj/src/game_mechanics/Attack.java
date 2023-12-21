@@ -1,4 +1,5 @@
 package game_mechanics;
+
 import PokemonPack.Ally;
 import PokemonPack.Enemy;
 import PokemonPack.Pokemon;
@@ -38,7 +39,7 @@ public class Attack {
         mash.setPhase("spirit");
         // Display spirit animation
         MashButton mashButton = new MashButton();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             mashButton.displayMashAnimation();
         }
 
@@ -97,19 +98,22 @@ public class Attack {
         // Display hp before attack
         System.out.println("BEFORE ATTACK:");
         System.out.println(Enemy.getEnemyPokemons()[0].getName() + " HP: "
-            + Enemy.getEnemyPokemons()[0].getStats().getHp());
+                + Enemy.getEnemyPokemons()[0].getStats().getHp());
         System.out.println(Enemy.getEnemyPokemons()[1].getName() + " HP: "
-            + Enemy.getEnemyPokemons()[1].getStats().getHp() + "\n");
-        // Display damage caused
-        System.out.println("DAMAGE CAUSED:");
-        System.out.println("Damage to " + enemy1.getName().toUpperCase() + ": " + effectivenessDamage1);
-        System.out.println("Damage to " + enemy2.getName().toUpperCase() + ": " + effectivenessDamage2 + "\n");
+                + Enemy.getEnemyPokemons()[1].getStats().getHp() + "\n");
 
         // Reduce enemy pokemons hp
+        int defend = Enemy.botDefend();
         Enemy.getEnemyPokemons()[0].getStats()
-            .setHp(Enemy.getEnemyPokemons()[0].getStats().getHp() - effectivenessDamage1);
+                .setHp(Enemy.getEnemyPokemons()[0].getStats().getHp() - effectivenessDamage1 + defend);
         Enemy.getEnemyPokemons()[1].getStats()
-            .setHp(Enemy.getEnemyPokemons()[1].getStats().getHp() - effectivenessDamage2);
+                .setHp(Enemy.getEnemyPokemons()[1].getStats().getHp() - effectivenessDamage2 + defend);
+
+        // Damage dealt to enemy pokemon
+        System.out.println("DAMAGE DEALT TO " + Enemy.getEnemyPokemons()[0].getName() + ": "
+                + (effectivenessDamage1 - defend));
+        System.out.println("DAMAGE DEALT TO " + Enemy.getEnemyPokemons()[1].getName() + ": "
+                + (effectivenessDamage2 - defend) + "\n");
 
         // Display hp after attack
         System.out.println("AFTER ATTACK:");

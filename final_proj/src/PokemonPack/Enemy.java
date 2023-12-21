@@ -24,9 +24,9 @@ public class Enemy {
 
     public static int botDamage() {
         Random rand = new Random();
-        int max = 10000;
-        int min = 2500;
-        // Generate random number between 2500-10000
+        int max = 8000;
+        int min = 4000;
+        // Generate random number between 4000-8000
         int damage = rand.nextInt(max- min) + min;
         return damage;
     }

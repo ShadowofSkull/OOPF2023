@@ -49,7 +49,8 @@ public class Defend {
         System.out.println("\033c");
         int defend1 = calcDefend(Ally.getAllyPokemons()[0]);
         int defend2 = calcDefend(Ally.getAllyPokemons()[1]);
-        int botDamage = Enemy.botDamage();
+        int effectiveBotDamage1 = Enemy.botDamage();
+        int effectiveBotDamage2 = Enemy.botDamage();
 
         String[] effectiveType = attackingPokemon.getType().getEffectiveType();
         String[] nonEffectiveType = attackingPokemon.getType().getNonEffectiveType();
@@ -61,18 +62,18 @@ public class Defend {
 
         for (String effective : effectiveType) {
             if (effective.equals(ally1Type)) {
-                botDamage *= 1.5;
+                effectiveBotDamage1 *= 1.5;
             }
             if (effective.equals(ally2Type)) {
-                botDamage *= 1.5;
+                effectiveBotDamage2 *= 1.5;
             }
         }
         for (String nonEffective : nonEffectiveType) {
             if (nonEffective.equals(ally1Type)) {
-                botDamage *= 0.5;
+                effectiveBotDamage1 *= 0.5;
             }
             if (nonEffective.equals(ally2Type)) {
-                botDamage *= 0.5;
+                effectiveBotDamage2 *= 0.5;
             }
         }
         // Switch statement to display attack animation
@@ -90,23 +91,23 @@ public class Defend {
                 electric.displayLightningAnimation();
                 break;
         }
-        
+
         System.out.println("BEFORE ATTACK:");
         System.out.println(ally1.getName() + " HP: " + ally1.getStats().getHp());
         System.out.println(ally2.getName() + " HP: " + ally2.getStats().getHp() + "\n");
-        // Display damage caused
-        System.out.println("DAMAGE CAUSED:");
-        System.out.println("Damage received by " + ally1.getName().toUpperCase() + ": " + botDamage);
-        System.out.println("Damage received by " + ally2.getName().toUpperCase() + ": " + botDamage + "\n");
 
         // Reduce ally pokemons hp only if bot damage is greater than defend or else hp
         // remain the same
-        if (botDamage >= defend1) {
-            ally1.getStats().setHp(ally1.getStats().getHp() - (botDamage - defend1));
+        if (effectiveBotDamage1 >= defend1) {
+            ally1.getStats().setHp(ally1.getStats().getHp() - (effectiveBotDamage1 - defend1));
         }
-        if (botDamage >= defend2) {
-            ally2.getStats().setHp(ally2.getStats().getHp() - (botDamage - defend2));
+        if (effectiveBotDamage2 >= defend2) {
+            ally2.getStats().setHp(ally2.getStats().getHp() - (effectiveBotDamage2 - defend2));
         }
+        // Damage dealt to ally pokemon
+        System.out.println("DAMAGE DEALT TO " + ally1.getName() + ": " + (effectiveBotDamage1 - defend1));
+        System.out.println("DAMAGE DEALT TO " + ally2.getName() + ": " + (effectiveBotDamage2 - defend2) + "\n");
+
         // Display hp after attack
         System.out.println("AFTER ATTACK:");
         Display.displayStats();

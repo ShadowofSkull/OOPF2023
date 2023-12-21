@@ -6,9 +6,6 @@ public class Player {
     private String name;
     private int score;
 
-    public Player() {
-    }
-
     public Player(String name, int score) {
         setName(name);
         setScore(score);

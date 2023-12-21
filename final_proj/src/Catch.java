@@ -2,6 +2,7 @@ import java.util.Random;
 
 import PokemonPack.Enemy;
 import PokemonPack.Pokemon;
+import Render.CatchingScreen;
 import game_mechanics.Ball;
 import game_mechanics.PokeballRoulette;
 
@@ -14,7 +15,7 @@ public class Catch {
         return false;
     }
 
-    public static boolean pokeballCaught() {
+    public static void pokeballCaught() throws InterruptedException {
         Pokemon[] enemy = Enemy.getEnemyPokemons();
         int enemyGrade1 = enemy[0].getGrade();
         int enemyGrade2 = enemy[1].getGrade();
@@ -59,27 +60,24 @@ public class Catch {
                 System.out.println("Error in catch chance");
                 break;
         }
-        boolean enemy1Caught = false;
-        boolean enemy2Caught = false;
+
+        // Display catching pokemon screen for anticipation
+        CatchingScreen catchingScreen = new CatchingScreen();
+        for (int i = 0; i < 3; i++) {
+            catchingScreen.displayCatchingAnimation();
+        }
+        System.out.println("\033c");
         // comparing grade of enemy pokemon to grade of pokeball and chance
         if ((enemyGrade1 <= ballGrade) && allowCatch && pokemonCatchable(enemy[0])) {
             System.out.printf("Enemy Pokemon 1 %s is caught with %s%n", enemy[0].getName(), pokeball.getType());
-            enemy1Caught = true;
         } else {
             System.out.printf("Enemy Pokemon 1 %s is not caught with %s%n", enemy[0].getName(), pokeball.getType());
         }
         if ((enemyGrade2 <= ballGrade) && allowCatch && pokemonCatchable(enemy[1])) {
             System.out.printf("Enemy Pokemon 2 %s is caught with %s%n", enemy[1].getName(), pokeball.getType());
-            enemy2Caught = true;
         } else {
             System.out.printf("Enemy Pokemon 2 %s is not caught with %s%n", enemy[1].getName(), pokeball.getType());
         }
         
-
-        if (enemy1Caught && enemy2Caught) {
-            return true;
-        }
-        return false;
-
     }
 }

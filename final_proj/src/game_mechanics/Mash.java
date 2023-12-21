@@ -14,6 +14,7 @@ public class Mash extends JFrame implements KeyListener {
     private Pokemon[] pokemons;
 
     public Mash() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.addKeyListener(this);
     }
@@ -57,19 +58,19 @@ public class Mash extends JFrame implements KeyListener {
         if (phase.equals("choosePokemon")) {
             // Let user pick one out of three pokemons
             if (keyCode == KeyEvent.VK_1) {
-                System.out.printf("PICKED %s, GAME LOADING PLEASE WAIT%n", pokemons[0].getName());
+                System.out.printf("PICKED %s%n%n", pokemons[0].getName());
                 Ally.choosePokemon(pokemons[0]);
-                setPhase("battle");
+                setPhase("");
             }
             if (keyCode == KeyEvent.VK_2) {
-                System.out.printf("PICKED %s, GAME LOADING PLEASE %n", pokemons[1].getName());
+                System.out.printf("PICKED %s%n%n", pokemons[1].getName());
                 Ally.choosePokemon(pokemons[1]);
-                setPhase("battle");
+                setPhase("");
             }
             if (keyCode == KeyEvent.VK_3) {
-                System.out.printf("PICKED %s, GAME LOADING PLEASE %n", pokemons[2].getName());
+                System.out.printf("PICKED %s%n%n", pokemons[2].getName());
                 Ally.choosePokemon(pokemons[2]);
-                setPhase("battle");
+                setPhase("");
             }
 
         }

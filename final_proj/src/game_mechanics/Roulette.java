@@ -16,10 +16,10 @@ public class Roulette {
                 break;
             }
             clearConsole();
+            index++;
             System.out.println(slide);
             System.out.println("Press space to stop the roulette");
 
-            index++;
             Thread.sleep(250);
         }
     }

@@ -32,6 +32,9 @@ public class Battle {
             // Check if catch phase requirement is met
             if (Catch.pokemonCatchable(Enemy.getEnemyPokemons()[0])
                     && Catch.pokemonCatchable(Enemy.getEnemyPokemons()[1])) {
+                System.out.println("ENEMIES DEFEATED! YOU CAN CATCH THEM!");
+                Thread.sleep(5000);
+                
                 mash.setPhase("pokeballRoulette");
                 PokeballRoulette pokeballRoulette = new PokeballRoulette(mash);
                 while (mash.getPhase().equals("pokeballRoulette")) {

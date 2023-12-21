@@ -24,13 +24,19 @@ public class Enemy {
 
     public static int botDamage() {
         Random rand = new Random();
-        int damage = rand.nextInt(10000);
+        int max = 10000;
+        int min = 2500;
+        // Generate random number between 2500-10000
+        int damage = rand.nextInt(max- min) + min;
         return damage;
     }
 
     public static int botDefend() {
         Random rand = new Random();
-        int defend = rand.nextInt(5000);
+        int max = 5000;
+        int min = 2500;
+        // Generate random number between 2500-5000
+        int defend = rand.nextInt(max - min) + min;
         return defend;
     }
 }

@@ -20,7 +20,7 @@ public class Game {
         while (mash.getPhase().equals("titleScreen")) {
             titleScreen.displayTitleAnimation();
         }
-
+        System.out.println("\033c");
         // Choose one out of three pokemons
         Pokemon[] pokemons = Ally.displayPokemons();
         // Store pokemons in mash to know the pokemons that can be chosen by players
@@ -31,7 +31,7 @@ public class Game {
             Thread.sleep(1000);
         }
         // Display the other pokemon that was not picked
-        System.out.printf("GUESS THAT POKEMON! IT'S %s! ANOTHER POKEMON IS JOINING YOU ON YOUR JOURNEY!\n", Ally.getAllyPokemons()[0].getName());
+        System.out.printf("GUESS THAT POKEMON! IT'S %s! THE OTHER POKEMON JOINING YOU ON YOUR JOURNEY!%n%n", Ally.getAllyPokemons()[0].getName());
         
         // Display enemy and ally hp
         Display.displayStats();
@@ -54,7 +54,6 @@ public class Game {
         // End game
         System.out.println("THANKS FOR PLAYING!");
         GameOver.displayGameOver();
-        Thread.sleep(5000);
         
     }
 

@@ -23,7 +23,7 @@ public class Display {
         System.out.print("ALLY POKEMON 2: " + ally2.getName().toUpperCase() + " HP: " + ally2.getStats().getHp()
                 + " TYPE: " + ally2.getType().getType().toUpperCase() + "\t\t\t");
         System.out.println("ENEMY POKEMON 2: " + enemy2.getName().toUpperCase() + " HP: " + enemy2.getStats().getHp()
-                + " TYPE: " + enemy2.getType().getType().toUpperCase());
+                + " TYPE: " + enemy2.getType().getType().toUpperCase() + "\n\n");
     }
 
     public void displaySlides(String[] slides) throws InterruptedException {

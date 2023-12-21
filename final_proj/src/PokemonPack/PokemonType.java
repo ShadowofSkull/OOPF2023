@@ -1,6 +1,5 @@
 package PokemonPack;
 
-import java.util.Arrays;
 
 public class PokemonType {
     private String type;

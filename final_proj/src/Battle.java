@@ -1,6 +1,5 @@
 import PokemonPack.Ally;
 import PokemonPack.Enemy;
-import PokemonPack.Pokemon;
 import game_mechanics.Attack;
 import game_mechanics.AttackRoulette;
 import game_mechanics.Defend;

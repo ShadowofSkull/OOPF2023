@@ -1,6 +1,5 @@
 import PokemonPack.Ally;
 import PokemonPack.Pokemon;
-import Player.Player;
 import Render.TitleScreen;
 import Render.Display;
 import Render.GameOver;
@@ -44,6 +43,7 @@ public class Game {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your name below: ");
         String name = sc.next();
+        sc.close();
         Player player = new Player(name, Attack.getTotalDamage());
         Leaderboard scoreboard = new Leaderboard();
         scoreboard.updateScore(player.getName(), player.getScore());

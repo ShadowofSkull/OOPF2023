@@ -31,9 +31,9 @@ public class Defend {
 
     public void defend() throws InterruptedException {
         // To allow enemy pokemon to attack in turns
-        if (turn == 1) {
+        if (turn == 1 && Enemy.getEnemyPokemons()[0].getStats().getHp() > 0) {
             turn = 0;
-        } else if (turn == 0) {
+        } else if (turn == 0 && Enemy.getEnemyPokemons()[1].getStats().getHp() > 0) {
             turn = 1;
         }
         attackingPokemon = Enemy.getEnemyPokemons()[turn];
